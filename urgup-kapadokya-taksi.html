@@ -1,0 +1,99 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kapadokya Taksi | Ürgüp Göreme Transfer Hizmeti</title>
+
+<meta name="description" content="Ürgüp, Göreme ve Kapadokya bölgesine 7/24 özel taksi transfer hizmeti. Havalimanı, otel ve turistik alanlara güvenli ulaşım.">
+
+<meta name="keywords" content="kapadokya taksi, ürgüp taksi, göreme taksi, kayseri kapadokya transfer, kapadokya ulaşım">
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- HERO -->
+<section class="hero" style="background:url('assets/kapadokya-urgup-goreme.png') center/cover no-repeat;">
+
+  <h1>Kapadokya Taksi</h1>
+  <p>Ürgüp • Göreme • Kapadokya Transfer</p>
+
+  <div class="buttons">
+
+    <a href="tel:+905323050446" class="btn call">
+      <img src="assets/icon-phone.png">
+      Hemen Ara
+    </a>
+
+    <a href="https://wa.me/905323050446?text=Merhaba,%20Kapadokya%20için%20taksi%20lazım" class="btn whatsapp">
+      <img src="assets/icon-whatsapp.png">
+      WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <h2>Kapadokya Transfer Hizmeti</h2>
+
+  <p>
+    Ürgüp, Göreme ve Kapadokya bölgesindeki otel, turistik alan ve havaalanı transferleri için 
+    7/24 özel taksi hizmeti sunuyoruz.
+  </p>
+
+  <p>
+    Turistik geziler, balon turları ve bölge içi ulaşım için hızlı, konforlu ve güvenli çözüm.
+  </p>
+
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+
+  <h2>Diğer Hizmetler</h2>
+
+  <div class="grid">
+
+    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
+    <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi</a></div>
+    <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
+    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<!-- FLOAT BUTTONS -->
+<a href="tel:+905323050446" class="fixed call">
+  <img src="assets/icon-phone.png">
+</a>
+
+<a href="https://wa.me/905323050446?text=Merhaba,%20Kapadokya%20için%20taksi%20lazım" class="fixed whatsapp">
+  <img src="assets/icon-whatsapp.png">
+</a>
+
+<!-- HEADER / FOOTER -->
+<script>
+fetch("components/header.html")
+  .then(r => r.text())
+  .then(d => document.getElementById("header").innerHTML = d);
+
+fetch("components/footer.html")
+  .then(r => r.text())
+  .then(d => document.getElementById("footer").innerHTML = d);
+</script>
+
+</body>
+</html>

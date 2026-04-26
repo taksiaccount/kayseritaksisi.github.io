@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kayseri Otogar | Hızlı ve Güvenli Ulaşım</title>
+
+<meta name="description" content="Kayseri otogardan şehir merkezine ve tüm bölgelere 7/24 hızlı taksi hizmeti. Güvenli ve uygun fiyatlı ulaşım.">
+
+<meta name="keywords" content="kayseri otogar taksi, otogar taksi kayseri, kayseri taksi, şehir içi taksi, hızlı taksi kayseri">
+
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- HERO (DOĞRU GÖRSEL) -->
+<section class="hero" style="background:url('assets/otogar-kayseri-taksi.png') center/cover no-repeat;">
+
+  <h1>Otogar</h1>
+  <p>Şehir İçi Hızlı Ulaşım → Kayseri Otogar</p>
+
+  <div class="buttons">
+
+    <a href="tel:+905323050446" class="btn call">
+      <img src="assets/icon-phone.png">
+      Hemen Ara
+    </a>
+
+    <a href="https://wa.me/905323050446?text=Merhaba,%20otogardan%20taksi%20lazım" class="btn whatsapp">
+      <img src="assets/icon-whatsapp.png">
+      WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <h2>Otogar Transfer Hizmeti</h2>
+
+  <p>
+Kayseri şehir merkezi, havalimanı ve çevre ilçelerden Kayseri Otogar’a 7/24 hızlı ve güvenli taksi transfer hizmeti sunuyoruz.
+  </p>
+
+  <p>
+Otobüs sefer saatlerinize uygun şekilde planlı olarak otogara zamanında ulaşım sağlanır. Beklemeden, konforlu ve uygun fiyatlı transfer imkânı sunarız.  </p>
+
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+
+  <h2>Diğer Hizmetler</h2>
+
+  <div class="grid">
+
+    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
+    <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi</a></div>
+    <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya</a></div>
+    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<!-- FLOAT BUTTONS -->
+<a href="tel:+905323050446" class="fixed call">
+  <img src="assets/icon-phone.png">
+</a>
+
+<a href="https://wa.me/905323050446?text=Merhaba,%20otogardan%20taksi%20lazım" class="fixed whatsapp">
+  <img src="assets/icon-whatsapp.png">
+</a>
+
+<!-- HEADER / FOOTER -->
+<script>
+fetch("components/header.html")
+  .then(r => r.text())
+  .then(d => document.getElementById("header").innerHTML = d);
+
+fetch("components/footer.html")
+  .then(r => r.text())
+  .then(d => document.getElementById("footer").innerHTML = d);
+</script>
+
+</body>
+</html>

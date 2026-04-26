@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Erciyes Transfer | Kayseri Kayak Merkezi Transfer</title>
+
+    <meta name="description"
+        content="Kayseri şehir merkezi ve çevre ilçelerden Erciyes Kayak Merkezi’ne 7/24 güvenli ve hızlı taksi transfer hizmeti. Konforlu ve uygun fiyatlı ulaşım.">
+
+    <meta name="keywords"
+        content="erciyes taksi, kayseri erciyes transfer, erciyes kayak merkezi ulaşım, kayak taksi kayseri">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section class="hero" style="background:url('assets/erciyes-taksi.png') center/cover no-repeat;">
+
+        <h1>Erciyes Transfer</h1>
+        <p>Kayak merkezi transfer hizmeti</p>
+
+        <div class="buttons">
+
+            <a href="tel:+905323050446" class="btn call">
+                <img src="assets/icon-phone.png">
+                Hemen Ara
+            </a>
+
+            <a href="https://wa.me/905323050446?text=Merhaba,%20Erciyes%20transfer%20lazım" class="btn whatsapp">
+                <img src="assets/icon-whatsapp.png">
+                WhatsApp
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- CONTENT -->
+    <section class="section">
+
+        <h2>Erciyes Kayak Merkezi</h2>
+
+        <p>
+            Kayseri şehir merkezi, otogar ve çevre ilçelerden Erciyes Kayak Merkezi’ne
+            7/24 güvenli ve hızlı taksi transfer hizmeti sunuyoruz.
+        </p>
+
+        <p>
+            Kış sezonunda kayak ve turistik ulaşım için konforlu ve planlı transfer sağlanır.
+        </p>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section">
+
+        <h2>Diğer Hizmetler</h2>
+
+        <div class="grid">
+
+            <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
+            <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi</a></div>
+            <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
+            <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya</a></div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <!-- FLOAT BUTTONS -->
+    <a href="tel:+905323050446" class="fixed call">
+        <img src="assets/icon-phone.png">
+    </a>
+
+    <a href="https://wa.me/905323050446?text=Merhaba,%20Erciyes%20transfer%20lazım" class="fixed whatsapp">
+        <img src="assets/icon-whatsapp.png">
+    </a>
+
+    <!-- HEADER / FOOTER LOAD -->
+    <script>
+        fetch("components/header.html")
+            .then(r => r.text())
+            .then(d => document.getElementById("header").innerHTML = d);
+
+        fetch("components/footer.html")
+            .then(r => r.text())
+            .then(d => document.getElementById("footer").innerHTML = d);
+    </script>
+
+</body>
+
+</html>

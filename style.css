@@ -1,99 +1,185 @@
-body {
+/* =========================
+   RESET
+========================= */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 12px 18px;
   background: #000;
-  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-header h1 {
-  font-size: 20px;
-  margin: 0;
-}
-
-.call-btn {
-  background: #ffcc00;
-  padding: 10px 14px;
+/* LOGO + TITLE WRAP */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
+}
+
+/* LOGO */
+.logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* BRAND TEXT */
+.brand-title {
+  font-weight: 900;
+  color: #ffcc00;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* CALL BUTTON (HEADER) */
+.call-only {
+  background: #ffcc00;
   color: #000;
+  padding: 10px 14px;
+  border-radius: 8px;
   font-weight: bold;
-  border-radius: 6px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* HERO */
+.call-only img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* =========================
+   HERO
+========================= */
 .hero {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  padding: 100px 20px;
-  background: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c') center/cover no-repeat;
-  color: white;
+  padding: 40px 20px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-.hero h2 {
+/* DARK OVERLAY (OKUNURLUK) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
   font-size: 34px;
   margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .btn {
-  background: #ffcc00;
-  padding: 14px 22px;
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
   border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.btn.whatsapp {
+.btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.call {
+  background: #ffcc00;
+  color: #000;
+}
+
+.whatsapp {
   background: #25D366;
-  color: white;
+  color: #fff;
 }
 
-/* SERVICES */
-.services {
-  padding: 60px 20px;
+/* =========================
+   SECTIONS
+========================= */
+.section {
+  padding: 40px 20px;
   text-align: center;
 }
 
-.cards {
-  display: flex;
+.section h2 {
+  margin-bottom: 20px;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 20px auto 0;
 }
 
 .card {
   background: #f4f4f4;
-  padding: 20px;
-  border-radius: 12px;
-  min-width: 180px;
+  padding: 16px;
+  border-radius: 10px;
   font-weight: bold;
 }
 
-/* MAP */
+.card a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* =========================
+   MAP
+========================= */
 .map {
-  text-align: center;
-  padding: 40px 20px;
+  padding: 30px 20px;
 }
 
 .map iframe {
@@ -103,53 +189,88 @@ header h1 {
   border-radius: 10px;
 }
 
-/* FOOTER */
-footer {
-  background: #000;
-  color: #fff;
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background: #ffcc00;
+  color: #000;
   text-align: center;
-  padding: 20px;
+  padding: 25px 15px;
 }
 
-/* FIXED BUTTONS */
+.footer h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.footer p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.footer-btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   FLOAT BUTTONS
+========================= */
 .fixed {
   position: fixed;
   bottom: 20px;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-decoration: none;
-  font-size: 22px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  align-items: center;
+}
+
+.fixed img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .fixed.call {
   right: 20px;
   background: #ffcc00;
-  color: black;
 }
 
 .fixed.whatsapp {
   right: 90px;
   background: #25D366;
-  color: white;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
-  .hero {
-    padding: 80px 15px;
-  }
-
-  .hero h2 {
+  .hero h1 {
     font-size: 26px;
   }
 
-  .cards {
-    flex-direction: column;
-    align-items: center;
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 10px 12px;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .brand-title {
+    font-size: 14px;
   }
 }

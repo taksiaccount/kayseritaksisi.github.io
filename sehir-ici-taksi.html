@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kayseri Şehir İçi Taksi | Hızlı ve Güvenilir Ulaşım</title>
+
+<meta name="description" content="Kayseri şehir içi taksi hizmeti. 7/24 hızlı, güvenilir ve uygun fiyatlı ulaşım. Otogar, merkez ve tüm ilçelere anında taksi çağırın.">
+
+<meta name="keywords" content="kayseri şehir içi taksi, kayseri taksi, merkez taksi, hızlı taksi kayseri, taksi çağır kayseri">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Kayseri Şehir İçi Taksi">
+<meta property="og:description" content="7/24 hızlı ve güvenilir şehir içi taksi hizmeti">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+<!-- HERO -->
+<section class="hero" style="background:url('assets/sehir-ici-kayseri-taksi.png') center/cover no-repeat;">
+
+  <h1>Şehir İçi Taksi</h1>
+  <p>Kayseri içinde hızlı ve güvenli ulaşım</p>
+
+  <div class="buttons">
+
+    <a href="tel:+905323050446" class="btn call">
+      <img src="assets/icon-phone.png">
+      Hemen Ara
+    </a>
+
+    <a href="https://wa.me/905323050446?text=Merhaba,%20şehir%20içi%20taksi%20lazım" class="btn whatsapp">
+      <img src="assets/icon-whatsapp.png">
+      WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+<!-- CONTENT -->
+<section class="section">
+
+  <h2>Şehir İçi Taksi Hizmeti</h2>
+
+  <p>
+    Kayseri şehir merkezi ve tüm ilçelerde 7/24 hızlı taksi hizmeti sunuyoruz.  
+    Beklemeden, güvenli ve konforlu ulaşım sağlanır.
+  </p>
+
+  <p>
+    Otogar, AVM, hastane ve tüm noktalara hızlı ulaşım için tek tıkla taksi çağırabilirsiniz.
+  </p>
+
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+
+  <h2>Diğer Hizmetler</h2>
+
+  <div class="grid">
+
+    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
+    <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
+    <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya</a></div>
+    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+<!-- FLOAT BUTTONS -->
+<a href="tel:+905323050446" class="fixed call">
+  <img src="assets/icon-phone.png">
+</a>
+
+<a href="https://wa.me/905323050446?text=Merhaba,%20şehir%20içi%20taksi%20lazım" class="fixed whatsapp">
+  <img src="assets/icon-whatsapp.png">
+</a>
+
+<!-- HEADER / FOOTER LOAD -->
+<script>
+fetch("components/header.html")
+  .then(r => r.text())
+  .then(d => document.getElementById("header").innerHTML = d);
+
+fetch("components/footer.html")
+  .then(r => r.text())
+  .then(d => document.getElementById("footer").innerHTML = d);
+</script>
+
+</body>
+</html>
