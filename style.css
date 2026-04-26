@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #111;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #000;
+  color: #fff;
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.call-btn {
+  background: #ffcc00;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c') center/cover no-repeat;
+  color: white;
+}
+
+.hero h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #ffcc00;
+  padding: 14px 22px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+/* SERVICES */
+.services {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 180px;
+  font-weight: bold;
+}
+
+/* MAP */
+.map {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.map iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* FIXED BUTTONS */
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 22px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.fixed.call {
+  right: 20px;
+  background: #ffcc00;
+  color: black;
+}
+
+.fixed.whatsapp {
+  right: 90px;
+  background: #25D366;
+  color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
