@@ -1,51 +1,32 @@
-<!DOCTYPE html>
-<html lang="tr">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kayseri Erkilet Havalimanı Taksi | 7/24 Transfer Hizmeti</title>
-
-    <meta name="description"
-        content="Kayseri Erkilet Havalimanı taksi hizmeti. 7/24 hızlı, güvenli ve uygun fiyatlı havaalanı transfer. Şehir merkezine ve çevre ilçelere anında ulaşım.">
-
-    <meta name="keywords"
-        content="kayseri havalimanı taksi, erkilet taksi, kayseri airport taxi, havaalanı transfer kayseri, kayseri taksi">
-
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Kayseri Erkilet Havalimanı Taksi">
-    <meta property="og:description" content="7/24 hızlı ve güvenli havalimanı taksi transfer hizmeti">
-    <meta property="og:type" content="website">
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <div id="header"></div>
+---
+layout: default
+title: "Kayseri Erkilet Havalimanı Taksi | 7/24 Transfer"
+seo_title: "Kayseri Erkilet Havalimanı Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
+seo_description: "Kayseri Erkilet Havalimanı (ASR) için 7/24 taksi ve transfer. Şehir merkezi, otogar ve ilçelere hızlı, güvenli ve uygun fiyatlı ulaşım."
+og_title: "Kayseri Erkilet Havalimanı Taksi 7/24"
+og_description: "ASR Havalimanı taksi ve transfer: hızlı, güvenli, 7/24."
+og_image: "assets/havalimani-erkilet-taksi.jpg"
+hero_image: "assets/havalimani-erkilet-taksi.jpg"
+areaServed: '["Kayseri","Kayseri Erkilet Havalimanı","Kayseri Otogar","Kocasinan","Melikgazi","Talas"]'
+---
 
     <!-- HERO -->
-    <section class="hero" style="background:url('assets/havalimani-erkilet-taksi.jpg') center/cover no-repeat;">
+    <section class="hero" style="background:url('{{ "assets/havalimani-erkilet-taksi.jpg" | relative_url }}') center/cover no-repeat;">
 
-        <h1>Erkilet Havalimanı</h1>
+        <h1>Kayseri Erkilet Havalimanı Taksi (7/24)</h1>
 
         <p>7/24 Kayseri Havalimanı Transfer Hizmeti</p>
 
         <div class="buttons">
 
             <a href="tel:+905323050446" class="btn call">
-                <img src="assets/icon-phone.png">
+                <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
                 Hemen Ara
             </a>
 
             <a href="https://wa.me/905323050446?text=Merhaba,%20Erkilet%20Havalimanı%20için%20taksi%20lazım"
                 class="btn whatsapp">
-                <img src="assets/icon-whatsapp.png">
+                <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
                 WhatsApp
             </a>
 
@@ -86,29 +67,16 @@
 
     </section>
 
-    <!-- FOOTER -->
-    <div id="footer"></div>
-
-    <!-- FLOAT BUTTONS -->
-    <a href="tel:+905323050446" class="fixed call">
-        <img src="assets/icon-phone.png">
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20Erkilet%20Havalimanı%20taksi%20lazım" class="fixed whatsapp">
-        <img src="assets/icon-whatsapp.png">
-    </a>
-
-    <!-- HEADER / FOOTER -->
-    <script>
-        fetch("components/header.html")
-            .then(r => r.text())
-            .then(d => document.getElementById("header").innerHTML = d);
-
-        fetch("components/footer.html")
-            .then(r => r.text())
-            .then(d => document.getElementById("footer").innerHTML = d);
-    </script>
-
-</body>
-
-</html>
+    <section class="section">
+        <h2>Sık Sorulan Sorular</h2>
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <div class="card">
+                <p><strong>Havalimanına kaç dakikada gelirsiniz?</strong></p>
+                <p>Konumunuza göre değişir. WhatsApp’tan konum gönderirseniz en hızlı şekilde yönlendirme yaparız.</p>
+            </div>
+            <div class="card">
+                <p><strong>Gece uçuşları için taksi var mı?</strong></p>
+                <p>Evet, Kayseri Erkilet Havalimanı için 7/24 taksi hizmeti veriyoruz.</p>
+            </div>
+        </div>
+    </section>

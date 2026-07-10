@@ -1,38 +1,30 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kapadokya Taksi | Ürgüp Göreme Transfer Hizmeti</title>
-
-<meta name="description" content="Ürgüp, Göreme ve Kapadokya bölgesine 7/24 özel taksi transfer hizmeti. Havalimanı, otel ve turistik alanlara güvenli ulaşım.">
-
-<meta name="keywords" content="kapadokya taksi, ürgüp taksi, göreme taksi, kayseri kapadokya transfer, kapadokya ulaşım">
-
-<meta name="robots" content="index, follow">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<!-- HEADER -->
-<div id="header"></div>
+---
+layout: default
+title: "Kapadokya Taksi | Ürgüp Göreme Transfer (7/24)"
+seo_title: "Kapadokya Taksi (Ürgüp, Göreme) 7/24 | ADLİYE TAKSİ - KAYSERİ"
+seo_description: "Kayseri çıkışlı Kapadokya transfer: Ürgüp, Göreme ve çevresine 7/24 taksi. Otel, turistik alan ve havalimanı transferleri için güvenli ulaşım."
+og_title: "Kapadokya Taksi (Ürgüp, Göreme) 7/24"
+og_description: "Ürgüp, Göreme ve Kapadokya bölgesine 7/24 taksi ve transfer."
+og_image: "assets/kapadokya-urgup-goreme.png"
+hero_image: "assets/kapadokya-urgup-goreme.png"
+areaServed: '["Kapadokya","Ürgüp","Göreme","Avanos","Kayseri"]'
+---
 
 <!-- HERO -->
-<section class="hero" style="background:url('assets/kapadokya-urgup-goreme.png') center/cover no-repeat;">
+<section class="hero" style="background:url('{{ "assets/kapadokya-urgup-goreme.png" | relative_url }}') center/cover no-repeat;">
 
-  <h1>Kapadokya Taksi</h1>
+  <h1>Kapadokya Taksi (Ürgüp, Göreme) (7/24)</h1>
   <p>Ürgüp • Göreme • Kapadokya Transfer</p>
 
   <div class="buttons">
 
     <a href="tel:+905323050446" class="btn call">
-      <img src="assets/icon-phone.png">
+      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
       Hemen Ara
     </a>
 
     <a href="https://wa.me/905323050446?text=Merhaba,%20Kapadokya%20için%20taksi%20lazım" class="btn whatsapp">
-      <img src="assets/icon-whatsapp.png">
+      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
       WhatsApp
     </a>
 
@@ -72,28 +64,16 @@
 
 </section>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<!-- FLOAT BUTTONS -->
-<a href="tel:+905323050446" class="fixed call">
-  <img src="assets/icon-phone.png">
-</a>
-
-<a href="https://wa.me/905323050446?text=Merhaba,%20Kapadokya%20için%20taksi%20lazım" class="fixed whatsapp">
-  <img src="assets/icon-whatsapp.png">
-</a>
-
-<!-- HEADER / FOOTER -->
-<script>
-fetch("components/header.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("header").innerHTML = d);
-
-fetch("components/footer.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("footer").innerHTML = d);
-</script>
-
-</body>
-</html>
+<section class="section">
+  <h2>Sık Sorulan Sorular</h2>
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card">
+      <p><strong>Kayseri’den Kapadokya’ya taksi var mı?</strong></p>
+      <p>Evet, Kayseri’den Ürgüp, Göreme ve Kapadokya bölgesine 7/24 transfer sağlıyoruz.</p>
+    </div>
+    <div class="card">
+      <p><strong>Otel ve turistik alanlara bırakıyor musunuz?</strong></p>
+      <p>Evet, otel, balon turu noktaları ve turistik alanlara konforlu ulaşım sağlanır.</p>
+    </div>
+  </div>
+</section>

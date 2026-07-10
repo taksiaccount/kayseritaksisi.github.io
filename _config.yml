@@ -1,0 +1,30 @@
+title: "ADLİYE TAKSİ - KAYSERİ"
+url: "https://www.kayseritaksisi.com.tr"
+baseurl: ""
+
+# Business defaults (used by layouts/JSON-LD)
+business:
+  name: "ADLİYE TAKSİ - KAYSERİ"
+  telephone: "+90 532 305 04 46"
+  paymentAccepted:
+    - "Cash"
+    - "Credit Card"
+  # Optional: add your Google Business Profile / Maps URL(s) here
+  # sameAs:
+  #   - "https://www.google.com/maps?cid=..."
+  areaServed:
+    - "Kayseri"
+    - "Kayseri Erkilet Havalimanı"
+    - "Kayseri Otogar"
+    - "Erciyes"
+    - "Kapadokya"
+    - "Ürgüp"
+    - "Göreme"
+  address:
+    addressLocality: "Kayseri"
+    addressCountry: "TR"
+  geo:
+    latitude: 38.7344184
+    longitude: 35.4807921
+  openingHours: "Mo-Su 00:00-23:59"
+

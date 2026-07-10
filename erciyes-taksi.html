@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html lang="tr">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Erciyes Transfer | Kayseri Kayak Merkezi Transfer</title>
-
-    <meta name="description"
-        content="Kayseri şehir merkezi ve çevre ilçelerden Erciyes Kayak Merkezi’ne 7/24 güvenli ve hızlı taksi transfer hizmeti. Konforlu ve uygun fiyatlı ulaşım.">
-
-    <meta name="keywords"
-        content="erciyes taksi, kayseri erciyes transfer, erciyes kayak merkezi ulaşım, kayak taksi kayseri">
-
-    <meta name="robots" content="index, follow">
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <div id="header"></div>
+---
+layout: default
+title: "Kayseri Erciyes Taksi / Transfer | 7/24"
+seo_title: "Kayseri Erciyes Taksi / Transfer 7/24 | ADLİYE TAKSİ - KAYSERİ"
+seo_description: "Kayseri’den Erciyes Kayak Merkezi’ne 7/24 taksi ve transfer. Kış sezonunda planlı, konforlu ve güvenli ulaşım."
+og_title: "Kayseri Erciyes Taksi / Transfer 7/24"
+og_description: "Erciyes Kayak Merkezi’ne 7/24 taksi ve transfer."
+og_image: "assets/erciyes-taksi.jpg"
+hero_image: "assets/erciyes-taksi.jpg"
+areaServed: '["Kayseri","Erciyes","Kayseri Otogar","Kayseri Erkilet Havalimanı"]'
+---
 
     <!-- HERO -->
-    <section class="hero" style="background:url('assets/erciyes-taksi.png') center/cover no-repeat;">
+    <section class="hero" style="background:url('{{ page.hero_image | relative_url }}') center/cover no-repeat;">
 
-        <h1>Erciyes Transfer</h1>
+        <h1>Kayseri Erciyes Taksi / Transfer (7/24)</h1>
         <p>Kayak merkezi transfer hizmeti</p>
 
         <div class="buttons">
 
             <a href="tel:+905323050446" class="btn call">
-                <img src="assets/icon-phone.png">
+                <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
                 Hemen Ara
             </a>
 
             <a href="https://wa.me/905323050446?text=Merhaba,%20Erciyes%20transfer%20lazım" class="btn whatsapp">
-                <img src="assets/icon-whatsapp.png">
+                <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
                 WhatsApp
             </a>
 
@@ -79,29 +64,16 @@
 
     </section>
 
-    <!-- FOOTER -->
-    <div id="footer"></div>
-
-    <!-- FLOAT BUTTONS -->
-    <a href="tel:+905323050446" class="fixed call">
-        <img src="assets/icon-phone.png">
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20Erciyes%20transfer%20lazım" class="fixed whatsapp">
-        <img src="assets/icon-whatsapp.png">
-    </a>
-
-    <!-- HEADER / FOOTER LOAD -->
-    <script>
-        fetch("components/header.html")
-            .then(r => r.text())
-            .then(d => document.getElementById("header").innerHTML = d);
-
-        fetch("components/footer.html")
-            .then(r => r.text())
-            .then(d => document.getElementById("footer").innerHTML = d);
-    </script>
-
-</body>
-
-</html>
+    <section class="section">
+        <h2>Sık Sorulan Sorular</h2>
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <div class="card">
+                <p><strong>Kayseri’den Erciyes’e transfer yapıyor musunuz?</strong></p>
+                <p>Evet, Kayseri’den Erciyes Kayak Merkezi’ne 7/24 taksi ve transfer hizmeti veriyoruz.</p>
+            </div>
+            <div class="card">
+                <p><strong>Kış sezonunda planlı transfer mümkün mü?</strong></p>
+                <p>Evet, saat ve konuma göre planlı transfer sağlayabiliriz.</p>
+            </div>
+        </div>
+    </section>

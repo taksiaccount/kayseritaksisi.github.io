@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ page.seo_title | default: page.title }}</title>
+  <meta name="description" content="{{ page.seo_description | default: page.description | default: site.description | escape }}">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <meta property="og:title" content="{{ page.og_title | default: page.seo_title | default: page.title }}">
+  <meta property="og:description" content="{{ page.og_description | default: page.seo_description | default: page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="{{ site.business.name }}">
+  {% if page.og_image %}
+  <meta property="og:image" content="{{ page.og_image | absolute_url }}">
+  {% endif %}
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.twitter_title | default: page.og_title | default: page.title }}">
+  <meta name="twitter:description" content="{{ page.twitter_description | default: page.og_description | default: page.description | default: site.description }}">
+  {% if page.og_image %}
+  <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ 'style.css' | relative_url }}">
+
+  <link rel="preconnect" href="https://www.google.com">
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+
+  {% if page.hero_image %}
+  <link rel="preload" as="image" href="{{ page.hero_image | relative_url }}">
+  {% endif %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TaxiService",
+    "name": "{{ site.business.name }}",
+    "telephone": "{{ site.business.telephone }}",
+    "url": "{{ site.url }}{{ site.baseurl }}/",
+    "openingHours": "{{ site.business.openingHours }}",
+    "paymentAccepted": {{ site.business.paymentAccepted | default: '["Cash"]' | jsonify }},
+    {% if site.business.sameAs %}
+    "sameAs": {{ site.business.sameAs | jsonify }},
+    {% endif %}
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ site.business.address.addressLocality }}",
+      "addressCountry": "{{ site.business.address.addressCountry }}"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": {{ site.business.geo.latitude }},
+      "longitude": {{ site.business.geo.longitude }}
+    },
+    "areaServed": {{ page.areaServed | default: site.business.areaServed | default: '["Kayseri"]' | jsonify }}
+  }
+  </script>
+
+  {% if page.faq %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in page.faq %}
+      {
+        "@type": "Question",
+        "name": {{ item.q | jsonify }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ item.a | jsonify }}
+        }
+      }{% if forloop.last == false %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+
+</head>
+<body>
+  {% include header.html %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  <a href="tel:+905323050446" class="fixed call" aria-label="Taksi çağırmak için ara">
+    <img src="{{ 'assets/icon-phone.png' | relative_url }}" alt="Telefon" width="26" height="26">
+  </a>
+
+  <a href="https://wa.me/905323050446?text=Merhaba,%20taksi%20g%C3%B6nderir%20misiniz?" class="fixed whatsapp" aria-label="WhatsApp ile yaz">
+    <img src="{{ 'assets/icon-whatsapp.png' | relative_url }}" alt="WhatsApp" width="26" height="26">
+  </a>
+</body>
+</html>
+

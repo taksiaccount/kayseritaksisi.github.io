@@ -1,42 +1,29 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kayseri Taksi 7/24 | Havalimanı, Şehir İçi & Kapadokya Ulaşım</title>
-
-<meta name="description" content="Kayseri 7/24 taksi hizmeti. Erkilet Havalimanı transfer, şehir içi ulaşım, Kapadokya ve çevre ilçelere hızlı ve güvenilir taksi çağırın.">
-<meta name="keywords" content="kayseri taksi, havalimanı taksi, erkilet taksi, kapadokya taksi, şehir içi taksi, otogar taksi">
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="Kayseri Taksi 7/24">
-<meta property="og:description" content="Hızlı, güvenli ve uygun fiyatlı Kayseri taksi hizmeti">
-<meta property="og:type" content="website">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<!-- HEADER -->
-<div id="header"></div>
+---
+layout: default
+title: "Kayseri Taksi 7/24 | Havalimanı, Şehir İçi & Kapadokya"
+seo_title: "Kayseri En Yakın Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
+seo_description: "ADLİYE TAKSİ - KAYSERİ ile Kayseri’de 7/24 en yakın taksi çağırın. Havalimanı, şehir içi, Otogar, Erciyes ve Kapadokya transfer. Nakit ve kredi kartı ile ödeme yapılabilir."
+og_title: "Kayseri En Yakın Taksi 7/24"
+og_description: "Hızlı, güvenli ve 7/24 Kayseri taksi çağırma. Havalimanı, şehir içi, otogar, Erciyes ve Kapadokya transfer."
+og_image: "assets/hero-kayseri-taksi.jpg"
+hero_image: "assets/hero-kayseri-taksi.jpg"
+areaServed: '["Kayseri","Kayseri Erkilet Havalimanı","Kayseri Otogar","Erciyes","Kapadokya","Ürgüp","Göreme"]'
+---
 
 <!-- HERO (BACKGROUND EKLENDİ) -->
-<section class="hero" style="background:url('assets/hero-kayseri-taksi.png') center/cover;">
+<section class="hero" style="background:url('{{ page.hero_image | relative_url }}') center/cover;">
   <h1>Kayseri En Yakın Taksi 7/24</h1>
-  <p>Havalimanı • Şehir İçi • Kapadokya Transfer</p>
+  <p>Havalimanı • Şehir İçi • Kapadokya Transfer<br>Kredi Kartı Geçerli</p>
 
   <div class="buttons">
 
     <a href="tel:+905323050446" class="btn call">
-      <img src="assets/icon-phone.png">
+      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
       Ara
     </a>
 
     <a href="https://wa.me/905323050446?text=Merhaba,%20taksi%20gönderir%20misiniz?" class="btn whatsapp">
-      <img src="assets/icon-whatsapp.png">
+      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
       WhatsApp
     </a>
 
@@ -52,31 +39,21 @@
     <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi Ulaşım</a></div>
     <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya & Ürgüp</a></div>
     <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
+    <div class="card"><a href="en-yakin-taksi-kayseri.html">📍 En Yakın Taksi (Nasıl Çağırılır?)</a></div>
+    <div class="card"><a href="hizmet-bolgeleri.html">🗺️ Hizmet Bölgeleri</a></div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<!-- FLOAT BUTTONS -->
-<a href="tel:+905323050446" class="fixed call">
-  <img src="assets/icon-phone.png">
-</a>
-
-<a href="https://wa.me/905323050446?text=Merhaba,%20taksi%20gönderir%20misiniz?" class="fixed whatsapp">
-  <img src="assets/icon-whatsapp.png">
-</a>
-
-<!-- HEADER / FOOTER LOAD -->
-<script>
-fetch("components/header.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("header").innerHTML = d);
-
-fetch("components/footer.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("footer").innerHTML = d);
-</script>
-
-</body>
-</html>
+<section class="section">
+  <h2>Sık Sorulan Sorular</h2>
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card">
+      <p><strong>Kayseri’de en yakın taksiyi nasıl çağırabilirim?</strong></p>
+      <p>Tek tuşla arayabilir veya WhatsApp’tan konum göndererek hızlıca taksi isteyebilirsiniz.</p>
+    </div>
+    <div class="card">
+      <p><strong>7/24 hizmet veriyor musunuz?</strong></p>
+      <p>Evet, ADLİYE TAKSİ - KAYSERİ olarak Kayseri’de 7/24 taksi hizmeti sunuyoruz.</p>
+    </div>
+  </div>
+</section>

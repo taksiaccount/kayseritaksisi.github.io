@@ -1,46 +1,30 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kayseri Şehir İçi Taksi | Hızlı ve Güvenilir Ulaşım</title>
-
-<meta name="description" content="Kayseri şehir içi taksi hizmeti. 7/24 hızlı, güvenilir ve uygun fiyatlı ulaşım. Otogar, merkez ve tüm ilçelere anında taksi çağırın.">
-
-<meta name="keywords" content="kayseri şehir içi taksi, kayseri taksi, merkez taksi, hızlı taksi kayseri, taksi çağır kayseri">
-
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="Kayseri Şehir İçi Taksi">
-<meta property="og:description" content="7/24 hızlı ve güvenilir şehir içi taksi hizmeti">
-<meta property="og:type" content="website">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<!-- HEADER -->
-<div id="header"></div>
+---
+layout: default
+title: "Kayseri Şehir İçi Taksi | 7/24"
+seo_title: "Kayseri Şehir İçi Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
+seo_description: "Kayseri şehir içi 7/24 taksi: merkez, ilçeler, hastane, AVM ve tüm noktalara hızlı ve güvenilir ulaşım. Tek tuşla ara veya WhatsApp’tan konum gönder."
+og_title: "Kayseri Şehir İçi Taksi 7/24"
+og_description: "Kayseri içinde hızlı ve güvenilir 7/24 taksi hizmeti."
+og_image: "assets/sehir-ici-kayseri-taksi.jpg"
+hero_image: "assets/sehir-ici-kayseri-taksi.jpg"
+areaServed: '["Kayseri","Melikgazi","Kocasinan","Talas"]'
+---
 
 <!-- HERO -->
-<section class="hero" style="background:url('assets/sehir-ici-kayseri-taksi.png') center/cover no-repeat;">
+<section class="hero" style="background:url('{{ page.hero_image | relative_url }}') center/cover no-repeat;">
 
-  <h1>Şehir İçi Taksi</h1>
+  <h1>Kayseri Şehir İçi Taksi (7/24)</h1>
   <p>Kayseri içinde hızlı ve güvenli ulaşım</p>
 
   <div class="buttons">
 
     <a href="tel:+905323050446" class="btn call">
-      <img src="assets/icon-phone.png">
+      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
       Hemen Ara
     </a>
 
     <a href="https://wa.me/905323050446?text=Merhaba,%20şehir%20içi%20taksi%20lazım" class="btn whatsapp">
-      <img src="assets/icon-whatsapp.png">
+      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
       WhatsApp
     </a>
 
@@ -80,28 +64,16 @@
 
 </section>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<!-- FLOAT BUTTONS -->
-<a href="tel:+905323050446" class="fixed call">
-  <img src="assets/icon-phone.png">
-</a>
-
-<a href="https://wa.me/905323050446?text=Merhaba,%20şehir%20içi%20taksi%20lazım" class="fixed whatsapp">
-  <img src="assets/icon-whatsapp.png">
-</a>
-
-<!-- HEADER / FOOTER LOAD -->
-<script>
-fetch("components/header.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("header").innerHTML = d);
-
-fetch("components/footer.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("footer").innerHTML = d);
-</script>
-
-</body>
-</html>
+<section class="section">
+  <h2>Sık Sorulan Sorular</h2>
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card">
+      <p><strong>Kayseri’de en yakın taksi ne kadar sürede gelir?</strong></p>
+      <p>Konum ve yoğunluğa göre değişir. WhatsApp’tan konum gönderirseniz hızlıca yönlendirme yaparız.</p>
+    </div>
+    <div class="card">
+      <p><strong>Şehir içinde her ilçeye geliyor musunuz?</strong></p>
+      <p>Evet, Kayseri merkez ve ilçelerde 7/24 hizmet veriyoruz.</p>
+    </div>
+  </div>
+</section>
