@@ -2,12 +2,12 @@
 - id: airport
   img: assets/thumbs/havalimani.jpg
   tr:
-    title: "Havalimanı transfer"
-    desc: "Erkilet Havalimanı'na gidiş ve dönüş"
+    title: "Havalimanına transfer"
+    desc: "Erkilet Havalimanı'na uçuşunuza göre"
     url: /havalimani-taksi.html
   en:
-    title: "Airport transfer"
-    desc: "To and from Kayseri Erkilet Airport (ASR)"
+    title: "Airport drop-off"
+    desc: "To Kayseri Erkilet Airport (ASR), on time"
     url: /en/airport-taxi.html
 
 - id: city
