@@ -1,0 +1,62 @@
+# One entry per service. "en" is optional: services without it are Turkish-only.
+- id: airport
+  img: assets/thumbs/havalimani.jpg
+  tr:
+    title: "Havalimanı transfer"
+    desc: "Erkilet Havalimanı'na gidiş ve dönüş"
+    url: /havalimani-taksi.html
+  en:
+    title: "Airport transfer"
+    desc: "To and from Kayseri Erkilet Airport (ASR)"
+    url: /en/airport-taxi.html
+
+- id: city
+  img: assets/thumbs/sehir-ici.jpg
+  tr:
+    title: "Şehir içi taksi"
+    desc: "Melikgazi, Kocasinan, Talas ve merkez"
+    url: /sehir-ici-taksi.html
+  en:
+    title: "City taxi"
+    desc: "Anywhere in Kayseri city centre"
+    url: /en/city-taxi.html
+
+- id: cappadocia
+  img: "https://images.unsplash.com/photo-1680469814298-9a1220de2cf2?w=336&h=228&fit=crop&q=78&fm=jpg"
+  tr:
+    title: "Kapadokya ve Ürgüp"
+    desc: "Ürgüp, Göreme, Avanos otellerine transfer"
+    url: /urgup-kapadokya-taksi.html
+  en:
+    title: "Cappadocia transfer"
+    desc: "Ürgüp, Göreme and Avanos hotels"
+    url: /en/cappadocia-taxi.html
+
+- id: erciyes
+  img: assets/thumbs/erciyes.jpg
+  tr:
+    title: "Erciyes transfer"
+    desc: "Şehirden kayak merkezine ve geri"
+    url: /erciyes-taksi.html
+  en:
+    title: "Erciyes ski transfer"
+    desc: "From the city to the ski resort and back"
+    url: /en/erciyes-taxi.html
+
+- id: busstation
+  img: assets/thumbs/otogar.jpg
+  tr:
+    title: "Otogar"
+    desc: "Kayseri Otogarı'na gidiş ve dönüş"
+    url: /otogar-taksi.html
+  en:
+    title: "Bus station"
+    desc: "To and from Kayseri Bus Terminal"
+    url: /en/bus-station-taxi.html
+
+- id: courthouse
+  img: assets/thumbs/adliye.jpg
+  tr:
+    title: "Adliye"
+    desc: "Duruşma saatine göre planlı ulaşım"
+    url: /adliye-taksi.html
