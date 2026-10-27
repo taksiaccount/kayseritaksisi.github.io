@@ -1,5 +1,8 @@
 ---
 layout: default
+lang: tr
+alt: /en/bus-station-taxi.html
+service_id: busstation
 title: "Kayseri Otogar Taksi | 7/24"
 seo_title: "Kayseri Otogar Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
 seo_description: "Kayseri Otogar için 7/24 taksi. Otogardan şehir merkezine, havalimanına ve ilçelere hızlı, güvenli ve uygun fiyatlı ulaşım."
@@ -7,71 +10,32 @@ og_title: "Kayseri Otogar Taksi 7/24"
 og_description: "Kayseri Otogar taksi ve transfer: hızlı, güvenli, 7/24."
 og_image: "assets/otogar-kayseri-taksi.png"
 hero_image: "assets/otogar-kayseri-taksi.png"
+hero_title: "Kayseri Otogar taksi"
+hero_lead: "Otogardan şehir merkezine, havalimanına ve ilçelere; otobüs saatinize göre."
+wa_text: "Merhaba, otogar için taksi lazım."
 areaServed: '["Kayseri","Kayseri Otogar","Kayseri Erkilet Havalimanı","Melikgazi","Kocasinan","Talas"]'
+faq:
+  - q: "Otogardan taksi çağırabilir miyim?"
+    a: "Evet, Kayseri Otogar’dan şehir merkezine ve ilçelere 7/24 taksi çağırabilirsiniz."
+  - q: "Otogar ile havalimanı arasında transfer yapıyor musunuz?"
+    a: "Evet, Otogar ile Erkilet Havalimanı arasında planlı transfer sağlayabiliriz."
 ---
 
-<!-- HERO (DOĞRU GÖRSEL) -->
-<section class="hero" style="background:url('{{ "assets/otogar-kayseri-taksi.png" | relative_url }}') center/cover no-repeat;">
+{% include hero.html %}
 
-  <h1>Kayseri Otogar Taksi (7/24)</h1>
-  <p>Şehir İçi Hızlı Ulaşım → Kayseri Otogar</p>
-
-  <div class="buttons">
-
-    <a href="tel:+905323050446" class="btn call">
-      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
-      Hemen Ara
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20otogardan%20taksi%20lazım" class="btn whatsapp">
-      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
-      WhatsApp
-    </a>
-
-  </div>
-
-</section>
-
-<!-- CONTENT -->
-<section class="section">
-
-  <h2>Otogar Transfer Hizmeti</h2>
-
-  <p>
-Kayseri şehir merkezi, havalimanı ve çevre ilçelerden Kayseri Otogar’a 7/24 hızlı ve güvenli taksi transfer hizmeti sunuyoruz.
-  </p>
-
-  <p>
-Otobüs sefer saatlerinize uygun şekilde planlı olarak otogara zamanında ulaşım sağlanır. Beklemeden, konforlu ve uygun fiyatlı transfer imkânı sunarız.  </p>
-
-</section>
-
-<!-- SERVICES -->
-<section class="section">
-
-  <h2>Diğer Hizmetler</h2>
-
-  <div class="grid">
-
-    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
-    <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi</a></div>
-    <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya</a></div>
-    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
-
-  </div>
-
-</section>
-
-<section class="section">
-  <h2>Sık Sorulan Sorular</h2>
-  <div class="grid" style="grid-template-columns: 1fr;">
-    <div class="card">
-      <p><strong>Otogardan taksi çağırabilir miyim?</strong></p>
-      <p>Evet, Kayseri Otogar’dan şehir merkezine ve ilçelere 7/24 taksi çağırabilirsiniz.</p>
-    </div>
-    <div class="card">
-      <p><strong>Otogar → Havalimanı transfer yapıyor musunuz?</strong></p>
-      <p>Evet, Otogar–Erkilet Havalimanı arasında planlı transfer sağlayabiliriz.</p>
-    </div>
+<section class="block">
+  <div class="wrap prose">
+    <h2>Otogar transferi</h2>
+    <p>Kayseri şehir merkezi, havalimanı ve çevre ilçelerden Kayseri Otogarı’na 7/24 taksi transferi yapıyoruz.</p>
+    <p>Otobüs saatinizi bildirirseniz aracı ona göre planlarız; sefere yetişmek için beklemezsiniz.</p>
   </div>
 </section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Diğer hizmetler</h2>
+    {% include routes.html %}
+  </div>
+</section>
+
+{% include faq.html %}

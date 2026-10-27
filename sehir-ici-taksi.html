@@ -1,5 +1,8 @@
 ---
 layout: default
+lang: tr
+alt: /en/city-taxi.html
+service_id: city
 title: "Kayseri Şehir İçi Taksi | 7/24"
 seo_title: "Kayseri Şehir İçi Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
 seo_description: "Kayseri şehir içi 7/24 taksi: merkez, ilçeler, hastane, AVM ve tüm noktalara hızlı ve güvenilir ulaşım. Tek tuşla ara veya WhatsApp’tan konum gönder."
@@ -7,73 +10,32 @@ og_title: "Kayseri Şehir İçi Taksi 7/24"
 og_description: "Kayseri içinde hızlı ve güvenilir 7/24 taksi hizmeti."
 og_image: "assets/sehir-ici-kayseri-taksi.jpg"
 hero_image: "assets/sehir-ici-kayseri-taksi.jpg"
+hero_title: "Kayseri şehir içi taksi"
+hero_lead: "Melikgazi, Kocasinan ve Talas’ta hastane, AVM, iş ya da ev; nereye olursa."
+wa_text: "Merhaba, şehir içi taksi lazım."
 areaServed: '["Kayseri","Melikgazi","Kocasinan","Talas"]'
+faq:
+  - q: "Kayseri’de en yakın taksi ne kadar sürede gelir?"
+    a: "Konum ve yoğunluğa göre değişir. WhatsApp’tan konum gönderirseniz hızlıca yönlendirme yaparız."
+  - q: "Şehir içinde her ilçeye geliyor musunuz?"
+    a: "Evet, Kayseri merkez ve ilçelerde 7/24 hizmet veriyoruz."
 ---
 
-<!-- HERO -->
-<section class="hero" style="background:url('{{ page.hero_image | relative_url }}') center/cover no-repeat;">
+{% include hero.html %}
 
-  <h1>Kayseri Şehir İçi Taksi (7/24)</h1>
-  <p>Kayseri içinde hızlı ve güvenli ulaşım</p>
-
-  <div class="buttons">
-
-    <a href="tel:+905323050446" class="btn call">
-      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
-      Hemen Ara
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20şehir%20içi%20taksi%20lazım" class="btn whatsapp">
-      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
-      WhatsApp
-    </a>
-
-  </div>
-
-</section>
-
-<!-- CONTENT -->
-<section class="section">
-
-  <h2>Şehir İçi Taksi Hizmeti</h2>
-
-  <p>
-    Kayseri şehir merkezi ve tüm ilçelerde 7/24 hızlı taksi hizmeti sunuyoruz.  
-    Beklemeden, güvenli ve konforlu ulaşım sağlanır.
-  </p>
-
-  <p>
-    Otogar, AVM, hastane ve tüm noktalara hızlı ulaşım için tek tıkla taksi çağırabilirsiniz.
-  </p>
-
-</section>
-
-<!-- SERVICES -->
-<section class="section">
-
-  <h2>Diğer Hizmetler</h2>
-
-  <div class="grid">
-
-    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
-    <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
-    <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya</a></div>
-    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
-
-  </div>
-
-</section>
-
-<section class="section">
-  <h2>Sık Sorulan Sorular</h2>
-  <div class="grid" style="grid-template-columns: 1fr;">
-    <div class="card">
-      <p><strong>Kayseri’de en yakın taksi ne kadar sürede gelir?</strong></p>
-      <p>Konum ve yoğunluğa göre değişir. WhatsApp’tan konum gönderirseniz hızlıca yönlendirme yaparız.</p>
-    </div>
-    <div class="card">
-      <p><strong>Şehir içinde her ilçeye geliyor musunuz?</strong></p>
-      <p>Evet, Kayseri merkez ve ilçelerde 7/24 hizmet veriyoruz.</p>
-    </div>
+<section class="block">
+  <div class="wrap prose">
+    <h2>Şehir içinde taksi</h2>
+    <p>Kayseri şehir merkezi ve ilçelerde 7/24 taksi hizmeti veriyoruz. Arayın ya da WhatsApp’tan konumunuzu gönderin, en yakın aracı yönlendirelim.</p>
+    <p>Otogar, AVM, hastane, üniversite ve iş yerleri dahil şehrin her noktasına gidiyoruz.</p>
   </div>
 </section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Diğer hizmetler</h2>
+    {% include routes.html %}
+  </div>
+</section>
+
+{% include faq.html %}

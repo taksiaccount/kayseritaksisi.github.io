@@ -1,5 +1,7 @@
 ---
 layout: default
+lang: tr
+service_id: courthouse
 title: "Kayseri Adliye Taksi | 7/24"
 seo_title: "Kayseri Adliye Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
 seo_description: "Kayseri Adliyesi (Kocasinan / Mevlana) için 7/24 taksi. Duruşma saatine yetişecek şekilde hızlı, güvenli ve uygun fiyatlı ulaşım."
@@ -7,6 +9,9 @@ og_title: "Kayseri Adliye Taksi 7/24"
 og_description: "Kayseri Adliyesi'ne 7/24 taksi ve transfer: hızlı, güvenli, zamanında."
 og_image: "assets/sehir-ici-kayseri-taksi.jpg"
 hero_image: "assets/sehir-ici-kayseri-taksi.jpg"
+hero_title: "Kayseri Adliyesi taksi"
+hero_lead: "Kocasinan, Mevlana Mahallesi. Duruşma saatinize göre planlı gidiş, adliye dönüşü transfer."
+wa_text: "Merhaba, adliyeye taksi lazım."
 areaServed: '["Kayseri","Kayseri Adliyesi","Kocasinan","Mevlana","Erkilet","Melikgazi","Talas"]'
 faq:
   - q: "Adliyeye taksi çağırabilir miyim?"
@@ -17,67 +22,21 @@ faq:
     a: "Evet, adliyeden şehir merkezi, otogar ve diğer ilçelere dönüş transferi de sağlayabiliriz."
 ---
 
-<!-- HERO -->
-<section class="hero" style="background:url('{{ page.hero_image | relative_url }}') center/cover no-repeat;">
+{% include hero.html %}
 
-  <h1>Kayseri Adliye Taksi (7/24)</h1>
-  <p>Kocasinan - Mevlana - Erkilet ve tüm Kayseri'den 7/24 taksi</p>
-
-  <div class="buttons">
-
-    <a href="tel:+905323050446" class="btn call">
-      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
-      Hemen Ara
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20adliyeye%20taksi%20lazım" class="btn whatsapp">
-      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
-      WhatsApp
-    </a>
-
-  </div>
-
-</section>
-
-<!-- CONTENT -->
-<section class="section">
-
-  <h2>Kayseri Adliyesi Taksi Hizmeti</h2>
-
-  <p>
-Kayseri şehir merkezi, Kocasinan, Melikgazi, Talas ve çevre ilçelerden Kayseri Adliyesi'ne 7/24 hızlı ve güvenli taksi hizmeti sunuyoruz.
-  </p>
-
-  <p>
-Duruşma ve randevu saatinize göre planlı olarak adliyeye zamanında ulaşım sağlanır. Adliye dönüşü şehir merkezine, otogara veya havalimanına transfer de yapılabilir.
-  </p>
-
-</section>
-
-<!-- SERVICES -->
-<section class="section">
-
-  <h2>Diğer Hizmetler</h2>
-
-  <div class="grid">
-
-    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
-    <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi</a></div>
-    <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
-    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
-
-  </div>
-
-</section>
-
-<section class="section">
-  <h2>Sık Sorulan Sorular</h2>
-  <div class="grid" style="grid-template-columns: 1fr;">
-    {% for item in page.faq %}
-    <div class="card">
-      <p><strong>{{ item.q }}</strong></p>
-      <p>{{ item.a }}</p>
-    </div>
-    {% endfor %}
+<section class="block">
+  <div class="wrap prose">
+    <h2>Adliyeye zamanında</h2>
+    <p>Kayseri şehir merkezi, Kocasinan, Melikgazi, Talas ve çevre ilçelerden Kayseri Adliyesi’ne 7/24 taksi hizmeti veriyoruz.</p>
+    <p>Duruşma ya da randevu saatinizi bildirin, aracı ona göre planlayalım. Dönüşte şehir merkezine, otogara veya havalimanına transfer de yapıyoruz.</p>
   </div>
 </section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Diğer hizmetler</h2>
+    {% include routes.html %}
+  </div>
+</section>
+
+{% include faq.html %}

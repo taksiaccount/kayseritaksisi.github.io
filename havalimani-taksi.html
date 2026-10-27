@@ -1,5 +1,8 @@
 ---
 layout: default
+lang: tr
+alt: /en/airport-taxi.html
+service_id: airport
 title: "Kayseri Erkilet Havalimanı Taksi | 7/24 Transfer"
 seo_title: "Kayseri Erkilet Havalimanı Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
 seo_description: "Kayseri Erkilet Havalimanı (ASR) için 7/24 taksi ve transfer. Şehir merkezi, otogar ve ilçelere hızlı, güvenli ve uygun fiyatlı ulaşım."
@@ -7,76 +10,34 @@ og_title: "Kayseri Erkilet Havalimanı Taksi 7/24"
 og_description: "ASR Havalimanı taksi ve transfer: hızlı, güvenli, 7/24."
 og_image: "assets/havalimani-erkilet-taksi.jpg"
 hero_image: "assets/havalimani-erkilet-taksi.jpg"
+hero_title: "Erkilet Havalimanı taksi"
+hero_lead: "Uçuşunuza göre planlı alım. Havalimanından şehir merkezine, otogara ve ilçelere, gece uçuşları dahil."
+wa_text: "Merhaba, Erkilet Havalimanı için taksi lazım."
 areaServed: '["Kayseri","Kayseri Erkilet Havalimanı","Kayseri Otogar","Kocasinan","Melikgazi","Talas"]'
+faq:
+  - q: "Havalimanına kaç dakikada gelirsiniz?"
+    a: "Konumunuza göre değişir. WhatsApp’tan konum gönderirseniz en hızlı şekilde yönlendirme yaparız."
+  - q: "Gece uçuşları için taksi var mı?"
+    a: "Evet, Kayseri Erkilet Havalimanı için 7/24 taksi hizmeti veriyoruz."
+  - q: "Uçuşa göre önceden taksi ayırabilir miyim?"
+    a: "Evet. Uçuş saatinizi ve adresinizi WhatsApp’tan iletin, aracı o saate planlayalım."
 ---
 
-    <!-- HERO -->
-    <section class="hero" style="background:url('{{ "assets/havalimani-erkilet-taksi.jpg" | relative_url }}') center/cover no-repeat;">
+{% include hero.html %}
 
-        <h1>Kayseri Erkilet Havalimanı Taksi (7/24)</h1>
+<section class="block">
+  <div class="wrap prose">
+    <h2>Havalimanı transferi nasıl işler?</h2>
+    <p>Kayseri şehir merkezi, otogar ve çevre ilçelerden Erkilet Havalimanı’na 7/24 taksi transferi yapıyoruz.</p>
+    <p>Uçuş saatinizi önceden bildirirseniz aracı ona göre planlarız; havalimanına zamanında, beklemeden ulaşırsınız. Dönüşte inişinize göre karşılama da ayarlanabilir.</p>
+  </div>
+</section>
 
-        <p>7/24 Kayseri Havalimanı Transfer Hizmeti</p>
+<section class="block">
+  <div class="wrap">
+    <h2>Diğer hizmetler</h2>
+    {% include routes.html %}
+  </div>
+</section>
 
-        <div class="buttons">
-
-            <a href="tel:+905323050446" class="btn call">
-                <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
-                Hemen Ara
-            </a>
-
-            <a href="https://wa.me/905323050446?text=Merhaba,%20Erkilet%20Havalimanı%20için%20taksi%20lazım"
-                class="btn whatsapp">
-                <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
-                WhatsApp
-            </a>
-
-        </div>
-    </section>
-
-    <!-- SEO CONTENT -->
-    <section class="section">
-
-        <h2>Erkilet Havalimanı Taksi Hizmeti</h2>
-
-        <p>
-            Kayseri şehir merkezi, otogar ve çevre ilçelerden Erkilet Havalimanı’na 7/24 hızlı ve güvenli taksi transfer
-            hizmeti sunuyoruz.
-        </p>
-
-        <p>
-            Uçuş saatlerinize uygun şekilde planlı olarak havalimanına zamanında ulaşım sağlanır. Beklemeden, konforlu
-            ve uygun fiyatlı transfer imkânı sunarız.
-
-        </p>
-
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section">
-
-        <h2>Diğer Taksi Hizmetleri</h2>
-
-        <div class="grid">
-
-            <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi Taksi</a></div>
-            <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
-            <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya Transfer</a></div>
-            <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
-
-        </div>
-
-    </section>
-
-    <section class="section">
-        <h2>Sık Sorulan Sorular</h2>
-        <div class="grid" style="grid-template-columns: 1fr;">
-            <div class="card">
-                <p><strong>Havalimanına kaç dakikada gelirsiniz?</strong></p>
-                <p>Konumunuza göre değişir. WhatsApp’tan konum gönderirseniz en hızlı şekilde yönlendirme yaparız.</p>
-            </div>
-            <div class="card">
-                <p><strong>Gece uçuşları için taksi var mı?</strong></p>
-                <p>Evet, Kayseri Erkilet Havalimanı için 7/24 taksi hizmeti veriyoruz.</p>
-            </div>
-        </div>
-    </section>
+{% include faq.html %}

@@ -1,79 +1,43 @@
 ---
 layout: default
+lang: tr
+alt: /en/cappadocia-taxi.html
+service_id: cappadocia
 title: "Kapadokya Taksi | Ürgüp Göreme Transfer (7/24)"
 seo_title: "Kapadokya Taksi (Ürgüp, Göreme) 7/24 | ADLİYE TAKSİ - KAYSERİ"
 seo_description: "Kayseri çıkışlı Kapadokya transfer: Ürgüp, Göreme ve çevresine 7/24 taksi. Otel, turistik alan ve havalimanı transferleri için güvenli ulaşım."
 og_title: "Kapadokya Taksi (Ürgüp, Göreme) 7/24"
 og_description: "Ürgüp, Göreme ve Kapadokya bölgesine 7/24 taksi ve transfer."
-og_image: "assets/kapadokya-urgup-goreme.png"
-hero_image: "assets/kapadokya-urgup-goreme.png"
+og_image: "https://images.unsplash.com/photo-1680469814298-9a1220de2cf2?w=1200&h=630&fit=crop&q=75&fm=jpg"
+hero_image: "https://images.unsplash.com/photo-1680469814298-9a1220de2cf2?w=1800&q=70&fm=jpg"
+hero_title: "Kapadokya, Ürgüp ve Göreme transferi"
+hero_lead: "Kayseri’den ya da Erkilet Havalimanı’ndan doğrudan otelinizin kapısına."
+wa_text: "Merhaba, Kapadokya için taksi lazım."
 areaServed: '["Kapadokya","Ürgüp","Göreme","Avanos","Kayseri"]'
+faq:
+  - q: "Kayseri’den Kapadokya’ya taksi var mı?"
+    a: "Evet, Kayseri’den Ürgüp, Göreme ve Kapadokya bölgesine 7/24 transfer sağlıyoruz."
+  - q: "Otel ve turistik alanlara bırakıyor musunuz?"
+    a: "Evet, otel, balon turu noktaları ve turistik alanlara ulaşım sağlıyoruz."
+  - q: "Havalimanından direkt Kapadokya’ya gidebilir miyim?"
+    a: "Evet. Uçuş saatinizi ve otel adresinizi WhatsApp’tan gönderin, karşılamayı planlayalım."
 ---
 
-<!-- HERO -->
-<section class="hero" style="background:url('{{ "assets/kapadokya-urgup-goreme.png" | relative_url }}') center/cover no-repeat;">
+{% include hero.html %}
 
-  <h1>Kapadokya Taksi (Ürgüp, Göreme) (7/24)</h1>
-  <p>Ürgüp • Göreme • Kapadokya Transfer</p>
-
-  <div class="buttons">
-
-    <a href="tel:+905323050446" class="btn call">
-      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
-      Hemen Ara
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20Kapadokya%20için%20taksi%20lazım" class="btn whatsapp">
-      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
-      WhatsApp
-    </a>
-
-  </div>
-
-</section>
-
-<!-- CONTENT -->
-<section class="section">
-
-  <h2>Kapadokya Transfer Hizmeti</h2>
-
-  <p>
-    Ürgüp, Göreme ve Kapadokya bölgesindeki otel, turistik alan ve havaalanı transferleri için 
-    7/24 özel taksi hizmeti sunuyoruz.
-  </p>
-
-  <p>
-    Turistik geziler, balon turları ve bölge içi ulaşım için hızlı, konforlu ve güvenli çözüm.
-  </p>
-
-</section>
-
-<!-- SERVICES -->
-<section class="section">
-
-  <h2>Diğer Hizmetler</h2>
-
-  <div class="grid">
-
-    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı</a></div>
-    <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi</a></div>
-    <div class="card"><a href="otogar-taksi.html">🚌 Otogar</a></div>
-    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
-
-  </div>
-
-</section>
-
-<section class="section">
-  <h2>Sık Sorulan Sorular</h2>
-  <div class="grid" style="grid-template-columns: 1fr;">
-    <div class="card">
-      <p><strong>Kayseri’den Kapadokya’ya taksi var mı?</strong></p>
-      <p>Evet, Kayseri’den Ürgüp, Göreme ve Kapadokya bölgesine 7/24 transfer sağlıyoruz.</p>
-    </div>
-    <div class="card">
-      <p><strong>Otel ve turistik alanlara bırakıyor musunuz?</strong></p>
-      <p>Evet, otel, balon turu noktaları ve turistik alanlara konforlu ulaşım sağlanır.</p>
-    </div>
+<section class="block">
+  <div class="wrap prose">
+    <h2>Kapadokya transferi</h2>
+    <p>Ürgüp, Göreme, Avanos ve Kapadokya bölgesindeki otellere, turistik alanlara ve havalimanına 7/24 özel taksi transferi yapıyoruz.</p>
+    <p>Erkilet Havalimanı’ndan bölgeye geçiş, balon turu sabahları ve gün içi geziler için önceden plan yapabiliriz.</p>
   </div>
 </section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Diğer hizmetler</h2>
+    {% include routes.html %}
+  </div>
+</section>
+
+{% include faq.html %}

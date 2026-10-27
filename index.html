@@ -1,5 +1,7 @@
 ---
 layout: default
+lang: tr
+alt: /en/
 title: "Kayseri Taksi 7/24 | Havalimanı, Şehir İçi & Kapadokya"
 seo_title: "Kayseri En Yakın Taksi 7/24 | ADLİYE TAKSİ - KAYSERİ"
 seo_description: "ADLİYE TAKSİ - KAYSERİ ile Kayseri’de 7/24 en yakın taksi çağırın. Havalimanı, şehir içi, Otogar, Erciyes ve Kapadokya transfer. Nakit ve kredi kartı ile ödeme yapılabilir."
@@ -7,53 +9,26 @@ og_title: "Kayseri En Yakın Taksi 7/24"
 og_description: "Hızlı, güvenli ve 7/24 Kayseri taksi çağırma. Havalimanı, şehir içi, otogar, Erciyes ve Kapadokya transfer."
 og_image: "assets/hero-kayseri-taksi.jpg"
 hero_image: "assets/hero-kayseri-taksi.jpg"
+hero_title: "Kayseri'de en yakın taksi"
+hero_lead: "Şehir içi, havalimanı, otogar, Erciyes ve Kapadokya. Arayın ya da WhatsApp'tan konumunuzu gönderin, en yakın aracı yönlendirelim."
 areaServed: '["Kayseri","Kayseri Erkilet Havalimanı","Kayseri Otogar","Erciyes","Kapadokya","Ürgüp","Göreme"]'
+faq:
+  - q: "Kayseri’de en yakın taksiyi nasıl çağırabilirim?"
+    a: "Telefonla arayabilir veya WhatsApp’tan konumunuzu göndererek taksi isteyebilirsiniz. Konum gönderirseniz size en yakın aracı yönlendiririz."
+  - q: "7/24 hizmet veriyor musunuz?"
+    a: "Evet, ADLİYE TAKSİ - KAYSERİ olarak Kayseri’de 7/24 taksi hizmeti sunuyoruz."
+  - q: "Kredi kartı geçiyor mu?"
+    a: "Evet, nakit veya kredi kartı ile ödeyebilirsiniz."
 ---
 
-<!-- HERO (BACKGROUND EKLENDİ) -->
-<section class="hero" style="background:url('{{ page.hero_image | relative_url }}') center/cover;">
-  <h1>Kayseri En Yakın Taksi 7/24</h1>
-  <p>Havalimanı • Şehir İçi • Kapadokya Transfer<br>Kredi Kartı Geçerli</p>
+{% include hero.html %}
 
-  <div class="buttons">
-
-    <a href="tel:+905323050446" class="btn call">
-      <img src="{{ "assets/icon-phone.png" | relative_url }}" alt="Telefon" width="22" height="22">
-      Ara
-    </a>
-
-    <a href="https://wa.me/905323050446?text=Merhaba,%20taksi%20gönderir%20misiniz?" class="btn whatsapp">
-      <img src="{{ "assets/icon-whatsapp.png" | relative_url }}" alt="WhatsApp" width="22" height="22">
-      WhatsApp
-    </a>
-
+<section class="block">
+  <div class="wrap">
+    <h2>Nereye gidiyorsunuz?</h2>
+    <p class="block-intro">Uzak transferlerde saat ve adres verirseniz aracı önceden planlarız.</p>
+    {% include routes.html %}
   </div>
 </section>
 
-<!-- HİZMETLER -->
-<section class="section">
-  <h2>Hizmetler</h2>
-
-  <div class="grid">
-    <div class="card"><a href="havalimani-taksi.html">✈️ Havalimanı Transfer</a></div>
-    <div class="card"><a href="sehir-ici-taksi.html">🏙 Şehir İçi Ulaşım</a></div>
-    <div class="card"><a href="urgup-kapadokya-taksi.html">🏜 Kapadokya & Ürgüp</a></div>
-    <div class="card"><a href="erciyes-taksi.html">⛷️ Erciyes Transfer</a></div>
-    <div class="card"><a href="en-yakin-taksi-kayseri.html">📍 En Yakın Taksi (Nasıl Çağırılır?)</a></div>
-    <div class="card"><a href="hizmet-bolgeleri.html">🗺️ Hizmet Bölgeleri</a></div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>Sık Sorulan Sorular</h2>
-  <div class="grid" style="grid-template-columns: 1fr;">
-    <div class="card">
-      <p><strong>Kayseri’de en yakın taksiyi nasıl çağırabilirim?</strong></p>
-      <p>Tek tuşla arayabilir veya WhatsApp’tan konum göndererek hızlıca taksi isteyebilirsiniz.</p>
-    </div>
-    <div class="card">
-      <p><strong>7/24 hizmet veriyor musunuz?</strong></p>
-      <p>Evet, ADLİYE TAKSİ - KAYSERİ olarak Kayseri’de 7/24 taksi hizmeti sunuyoruz.</p>
-    </div>
-  </div>
-</section>
+{% include faq.html %}

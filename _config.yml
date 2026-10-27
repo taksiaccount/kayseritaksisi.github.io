@@ -6,6 +6,10 @@ baseurl: ""
 business:
   name: "ADLİYE TAKSİ - KAYSERİ"
   telephone: "+90 532 305 04 46"
+  phone_tel: "+905323050446"        # used in tel: links
+  phone_local: "0532 305 04 46"     # shown on Turkish pages
+  phone_intl: "+90 532 305 04 46"   # shown on English pages
+  whatsapp: "905323050446"          # wa.me number
   paymentAccepted:
     - "Cash"
     - "Credit Card"
