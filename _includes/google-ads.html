@@ -1,0 +1,22 @@
+{%- if site.google_ads.id -%}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_ads.id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_ads.id }}');
+
+  // Count a conversion when a visitor taps a call or WhatsApp link anywhere on the page.
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    var sendTo = null;
+    if (href.indexOf('tel:') === 0) sendTo = '{{ site.google_ads.call_click }}';
+    else if (href.indexOf('wa.me/') !== -1) sendTo = '{{ site.google_ads.whatsapp_click }}';
+    if (!sendTo) return;
+    gtag('event', 'conversion', { send_to: sendTo, value: 1.0, currency: 'TRY', transport_type: 'beacon' });
+  }, true);
+</script>
+{%- endif -%}
