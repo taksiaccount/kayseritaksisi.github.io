@@ -1,0 +1,17 @@
+{%- if page.faq -%}
+{%- assign lang = page.lang | default: "tr" -%}
+{%- assign t = site.data.i18n[lang] -%}
+<section class="block block-alt">
+  <div class="wrap">
+    <h2>{{ t.faq }}</h2>
+    <div class="faq">
+      {%- for item in page.faq %}
+      <details>
+        <summary>{{ item.q }}{% include icon.html name="plus" %}</summary>
+        <p class="answer">{{ item.a }}</p>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif -%}

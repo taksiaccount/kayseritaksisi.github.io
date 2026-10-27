@@ -1,0 +1,18 @@
+{%- assign lang = page.lang | default: "tr" -%}
+<ul class="routes">
+{%- for s in site.data.services -%}
+  {%- assign item = s[lang] -%}
+  {%- if item and s.id != page.service_id -%}
+  <li>
+    <a class="route" href="{{ item.url | relative_url }}">
+      {% if s.img contains '://' %}{% assign img_src = s.img %}{% else %}{% assign img_src = s.img | relative_url %}{% endif %}<img src="{{ img_src }}" alt="" width="112" height="76" loading="lazy">
+      <span>
+        <span class="route-title">{{ item.title }}</span>
+        <span class="route-desc">{{ item.desc }}</span>
+      </span>
+      <span class="route-go">{% include icon.html name="chevron" %}</span>
+    </a>
+  </li>
+  {%- endif -%}
+{%- endfor -%}
+</ul>

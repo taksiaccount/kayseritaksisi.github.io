@@ -1,26 +1,39 @@
+{%- assign lang = page.lang | default: "tr" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- if lang == "en" -%}{%- assign phone_display = site.business.phone_intl -%}{%- else -%}{%- assign phone_display = site.business.phone_local -%}{%- endif -%}
+<section class="closing">
+  <div class="wrap">
+    <h2>{{ t.closing_title }}</h2>
+    <a href="tel:{{ site.business.phone_tel }}" class="btn btn-call">{% include icon.html name="phone" %}{{ phone_display }}</a>
+  </div>
+</section>
+
 <footer class="footer">
-  <section class="map" aria-label="Harita">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.2764303097642!2d35.4807921!3d38.734418399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b13003069e92d%3A0x5b0c6fca1f6e09ff!2sKayseri%20Adliye%20Taksi!5e0!3m2!1str!2str!4v1777204484736!5m2!1str!2str"
-      width="400"
-      height="300"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Kayseri Adliye Taksi konumu">
-    </iframe>
-  </section>
-
-  <h3>Taksi Yolculuğunu Şimdi Planla</h3>
-
-  <a href="tel:+905323050446" class="footer-btn" aria-label="Şimdi arayın">
-    📞 Şimdi Ara
-  </a>
-
-  <p><strong>{{ site.business.name }}</strong></p>
-  <p><a href="tel:+905323050446">+90 532 305 04 46</a> • Kayseri</p>
-  <p><strong>Ödeme:</strong> Nakit ve kredi kartı ile ödeme yapılabilir.</p>
-  <p>7/24 Hizmet</p>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>{{ site.business.name }}</h3>
+        <dl>
+          <dt>{{ t.phone_label }}</dt><dd><a href="tel:{{ site.business.phone_tel }}">{{ site.business.phone_intl }}</a></dd>
+          <dt>{{ t.hours_label }}</dt><dd>{{ t.hours_value }}</dd>
+          <dt>{{ t.payment_label }}</dt><dd>{{ t.cash_ok }}</dd>
+          <dt>{{ t.area_label }}</dt><dd>{{ t.area_value }}</dd>
+        </dl>
+        <nav aria-label="{{ t.services }}">
+          {%- for s in site.data.services -%}
+            {%- assign item = s[lang] -%}
+            {%- if item %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endif -%}
+          {%- endfor -%}
+          {%- if lang == "tr" %}<a href="{{ '/hizmet-bolgeleri.html' | relative_url }}">Hizmet bölgeleri</a>{% endif %}
+        </nav>
+      </div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.2764303097642!2d35.4807921!3d38.734418399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b13003069e92d%3A0x5b0c6fca1f6e09ff!2sKayseri%20Adliye%20Taksi!5e0!3m2!1s{{ lang }}!2str!4v1777204484736!5m2!1s{{ lang }}!2str"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          title="{{ t.map_title }}"></iframe>
+      </div>
+    </div>
+    <p class="footer-note">© {{ site.time | date: "%Y" }} {{ site.business.name }}</p>
+  </div>
 </footer>
-

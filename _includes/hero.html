@@ -1,0 +1,25 @@
+{%- assign lang = page.lang | default: "tr" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign wa_text = page.wa_text | default: t.wa_default -%}
+{%- if lang == "en" -%}{%- assign phone_display = site.business.phone_intl -%}{%- else -%}{%- assign phone_display = site.business.phone_local -%}{%- endif -%}
+<section class="hero"{% if page.hero_image %}{% if page.hero_image contains '://' %}{% assign hero_src = page.hero_image %}{% else %}{% assign hero_src = page.hero_image | relative_url %}{% endif %} style="background-image:url('{{ hero_src }}')"{% endif %}>
+  <div class="wrap">
+    <h1>{{ page.hero_title }}</h1>
+    {% if page.hero_lead %}<p class="hero-lead">{{ page.hero_lead }}</p>{% endif %}
+
+    <a href="tel:{{ site.business.phone_tel }}" class="roof-sign">
+      <span class="roof-sign-label">{% include icon.html name="phone" %}{{ t.call_taxi }}</span>
+      <span class="roof-sign-number">{{ phone_display }}</span>
+    </a>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/{{ site.business.whatsapp }}?text={{ wa_text | uri_escape }}" class="btn btn-wa">
+        <img src="{{ 'assets/icon-whatsapp.png' | relative_url }}" alt="" width="22" height="22">{{ t.whatsapp_location }}
+      </a>
+      <ul class="hero-facts">
+        <li>{% include icon.html name="clock" %}{{ t.open_24 }}</li>
+        <li>{% include icon.html name="card" %}{{ t.card_ok }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
