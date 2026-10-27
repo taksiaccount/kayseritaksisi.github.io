@@ -1,4 +1,10 @@
 title: "ADLİYE TAKSİ - KAYSERİ"
+
+# Google Ads conversion tracking (account 884-039-4107)
+google_ads:
+  id: "AW-16895671720"
+  call_click: "AW-16895671720/0LfvCPfTtasdEKj7vfg-"      # Site - Ara tıklaması
+  whatsapp_click: "AW-16895671720/nVFkCITntasdEKj7vfg-"  # Site - WhatsApp tıklaması
 url: "https://www.kayseritaksisi.com.tr"
 baseurl: ""
 
@@ -13,9 +19,9 @@ business:
   paymentAccepted:
     - "Cash"
     - "Credit Card"
-  # Optional: add your Google Business Profile / Maps URL(s) here
-  # sameAs:
-  #   - "https://www.google.com/maps?cid=..."
+  # Google Business Profile (Kayseri Adliye Taksi)
+  sameAs:
+    - "https://www.google.com/maps?cid=6560741671073352191"
   areaServed:
     - "Kayseri"
     - "Kayseri Erkilet Havalimanı"
