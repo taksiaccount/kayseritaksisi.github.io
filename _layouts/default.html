@@ -1,14 +1,24 @@
+{%- assign lang = page.lang | default: "tr" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- if lang == "en" -%}{%- assign og_locale = "en_US" -%}{%- else -%}{%- assign og_locale = "tr_TR" -%}{%- endif -%}
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#23262A">
 
   <title>{{ page.seo_title | default: page.title }}</title>
   <meta name="description" content="{{ page.seo_description | default: page.description | default: site.description | escape }}">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {%- if page.alt %}
+  {%- if lang == "tr" %}{% assign tr_url = page.url %}{% assign en_url = page.alt %}{% else %}{% assign tr_url = page.alt %}{% assign en_url = page.url %}{% endif %}
+  <link rel="alternate" hreflang="tr" href="{{ tr_url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ en_url | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ tr_url | absolute_url }}">
+  {%- endif %}
 
   <link rel="icon" type="image/png" href="{{ 'assets/logo.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ 'assets/logo.png' | relative_url }}">
@@ -17,27 +27,26 @@
   <meta property="og:description" content="{{ page.og_description | default: page.seo_description | default: page.description | default: site.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale" content="{{ og_locale }}">
   <meta property="og:site_name" content="{{ site.business.name }}">
-  {% if page.og_image %}
-  <meta property="og:image" content="{{ page.og_image | absolute_url }}">
-  {% endif %}
-
+  {%- if page.og_image %}
+  {%- if page.og_image contains '://' %}{% assign og_src = page.og_image %}{% else %}{% assign og_src = page.og_image | absolute_url %}{% endif %}
+  <meta property="og:image" content="{{ og_src }}">
+  {%- endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.twitter_title | default: page.og_title | default: page.title }}">
   <meta name="twitter:description" content="{{ page.twitter_description | default: page.og_description | default: page.description | default: site.description }}">
-  {% if page.og_image %}
-  <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
-  {% endif %}
+  {%- if page.og_image %}
+  <meta name="twitter:image" content="{{ og_src }}">
+  {%- endif %}
 
+  <link rel="preload" as="font" type="font/woff2" href="{{ 'assets/fonts/barlow-condensed-latin-700-normal.woff2' | relative_url }}" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="{{ 'assets/fonts/barlow-latin-400-normal.woff2' | relative_url }}" crossorigin>
   <link rel="stylesheet" href="{{ 'style.css' | relative_url }}">
-
-  <link rel="preconnect" href="https://www.google.com">
-  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-
-  {% if page.hero_image %}
-  <link rel="preload" as="image" href="{{ page.hero_image | relative_url }}">
-  {% endif %}
+  {%- if page.hero_image %}
+  {%- if page.hero_image contains '://' %}{% assign pre_src = page.hero_image %}{% else %}{% assign pre_src = page.hero_image | relative_url %}{% endif %}
+  <link rel="preload" as="image" href="{{ pre_src }}">
+  {%- endif %}
 
   <script type="application/ld+json">
   {
@@ -48,9 +57,9 @@
     "url": "{{ site.url }}{{ site.baseurl }}/",
     "openingHours": "{{ site.business.openingHours }}",
     "paymentAccepted": {{ site.business.paymentAccepted | default: '["Cash"]' | jsonify }},
-    {% if site.business.sameAs %}
+    {%- if site.business.sameAs %}
     "sameAs": {{ site.business.sameAs | jsonify }},
-    {% endif %}
+    {%- endif %}
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "{{ site.business.address.addressLocality }}",
@@ -64,43 +73,69 @@
     "areaServed": {{ page.areaServed | default: site.business.areaServed | default: '["Kayseri"]' | jsonify }}
   }
   </script>
-
-  {% if page.faq %}
+  {%- if page.faq %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {% for item in page.faq %}
+      {%- for item in page.faq %}
       {
         "@type": "Question",
         "name": {{ item.q | jsonify }},
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": {{ item.a | jsonify }}
-        }
-      }{% if forloop.last == false %},{% endif %}
-      {% endfor %}
+        "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | jsonify }} }
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
     ]
   }
   </script>
-  {% endif %}
-
+  {%- endif %}
 </head>
 <body>
+  {%- if page.alt %}
+  <div class="lang-bar" id="lang-bar" data-page-lang="{{ lang }}" lang="{{ t.lang_other_code }}">
+    <div class="wrap">
+      <p>{{ t.lang_bar_text }} <a href="{{ page.alt | relative_url }}" hreflang="{{ t.lang_other_code }}">{{ t.lang_bar_link }}</a></p>
+      <button type="button" id="lang-bar-close">{{ t.lang_bar_close }}</button>
+    </div>
+  </div>
+  {%- endif %}
+
   {% include header.html %}
 
+  <main>
   {{ content }}
+  </main>
 
   {% include footer.html %}
 
-  <a href="tel:+905323050446" class="fixed call" aria-label="Taksi çağırmak için ara">
-    <img src="{{ 'assets/icon-phone.png' | relative_url }}" alt="Telefon" width="26" height="26">
-  </a>
+  <div class="action-bar">
+    <a href="tel:{{ site.business.phone_tel }}" class="btn btn-call">{% include icon.html name="phone" %}{{ t.call_now }}</a>
+    <a href="https://wa.me/{{ site.business.whatsapp }}?text={{ page.wa_text | default: t.wa_default | uri_escape }}" class="btn btn-wa">
+      <img src="{{ 'assets/icon-whatsapp.png' | relative_url }}" alt="" width="22" height="22">{{ t.whatsapp }}
+    </a>
+  </div>
 
-  <a href="https://wa.me/905323050446?text=Merhaba,%20taksi%20g%C3%B6nderir%20misiniz?" class="fixed whatsapp" aria-label="WhatsApp ile yaz">
-    <img src="{{ 'assets/icon-whatsapp.png' | relative_url }}" alt="WhatsApp" width="26" height="26">
-  </a>
+  {%- if page.alt %}
+  <script>
+  (function () {
+    var bar = document.getElementById('lang-bar');
+    if (!bar) return;
+    var pageLang = bar.getAttribute('data-page-lang');
+    var key = 'langBarDismissed';
+    try { if (localStorage.getItem(key)) return; } catch (e) {}
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    var prefersTurkish = String(langs[0] || '').toLowerCase().indexOf('tr') === 0;
+    // Suggest the other language only when the visitor's browser prefers it. Never redirect.
+    if ((pageLang === 'tr' && !prefersTurkish) || (pageLang === 'en' && prefersTurkish)) {
+      bar.classList.add('is-visible');
+    }
+    document.getElementById('lang-bar-close').addEventListener('click', function () {
+      bar.classList.remove('is-visible');
+      try { localStorage.setItem(key, '1'); } catch (e) {}
+    });
+  })();
+  </script>
+  {%- endif %}
 </body>
 </html>
-
