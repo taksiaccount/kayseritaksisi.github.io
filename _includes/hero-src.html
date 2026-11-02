@@ -1,0 +1,15 @@
+{%- comment -%}
+Sets hero_m (phone-sized) and hero_l (desktop) image URLs for page.hero_image.
+Local images use the -m.webp / -l.webp copies next to the original; Unsplash URLs are resized by width.
+{%- endcomment -%}
+{%- assign hero_m = nil -%}{%- assign hero_l = nil -%}
+{%- if page.hero_image -%}
+  {%- if page.hero_image contains '://' -%}
+    {%- assign hero_l = page.hero_image -%}
+    {%- assign hero_m = page.hero_image | replace: 'w=1800', 'w=900' -%}
+  {%- else -%}
+    {%- assign hero_base = page.hero_image | split: '.' | first -%}
+    {%- assign hero_m = hero_base | append: '-m.webp' | relative_url -%}
+    {%- assign hero_l = hero_base | append: '-l.webp' | relative_url -%}
+  {%- endif -%}
+{%- endif -%}
