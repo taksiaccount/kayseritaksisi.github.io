@@ -1,5 +1,5 @@
 {%- comment -%}
-WhatsApp buttons: ask the browser for the visitor's location and add a Google Maps
+The "WhatsApp'tan konum gönder" button (links marked data-wa-location): ask the browser for the visitor's location and add a Google Maps
 link to the pre-filled WhatsApp message. If location is refused, unavailable or
 slow, a small notice explains how to send the location from inside WhatsApp,
 with a button that opens WhatsApp with the normal message.
@@ -89,8 +89,8 @@ Turned on per page with `wa_location: true`, or for the whole site with
   }
 
   document.addEventListener('click', function (e) {
-    var link = e.target.closest && e.target.closest('a[href*="wa.me/"]');
-    if (!link || link.hasAttribute('data-wa-direct')) return;
+    var link = e.target.closest && e.target.closest('a[data-wa-location][href*="wa.me/"]');
+    if (!link) return;
     e.preventDefault();
     if (busy) return;
 

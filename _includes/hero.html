@@ -14,7 +14,7 @@
     </a>
 
     <div class="hero-actions">
-      <a href="https://wa.me/{{ site.business.whatsapp }}?text={{ wa_text | uri_escape }}" class="btn btn-wa">
+      <a href="https://wa.me/{{ site.business.whatsapp }}?text={{ wa_text | uri_escape }}" class="btn btn-wa" data-wa-location>
         <img src="{{ 'assets/icon-whatsapp-44.png' | relative_url }}" alt="" width="22" height="22">{{ t.whatsapp_location }}
       </a>
       <ul class="hero-facts">
