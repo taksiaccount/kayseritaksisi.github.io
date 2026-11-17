@@ -11,6 +11,9 @@ permalink: /sitemap.xml
     {% if page.url contains '/assets/' or page.url contains '/components/' or page.url contains '/_includes/' or page.url contains '/_layouts/' %}
       {% continue %}
     {% endif %}
+    {% if page.sitemap == false %}
+      {% continue %}
+    {% endif %}
     {% if page.name == "robots.txt" or page.name == "sitemap.xml" %}
       {% continue %}
     {% endif %}

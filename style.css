@@ -259,3 +259,6 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.02; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* WhatsApp button while the browser is getting the visitor's location */
+.btn.is-locating { opacity: .65; pointer-events: none; }
