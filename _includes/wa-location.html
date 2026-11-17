@@ -1,49 +1,102 @@
 {%- comment -%}
 WhatsApp buttons: ask the browser for the visitor's location and add a Google Maps
 link to the pre-filled WhatsApp message. If location is refused, unavailable or
-slow, the button opens WhatsApp with the normal message, exactly as before.
+slow, a small notice explains how to send the location from inside WhatsApp,
+with a button that opens WhatsApp with the normal message.
 Turned on per page with `wa_location: true`, or for the whole site with
 `wa_location: true` in _config.yml.
 {%- endcomment -%}
 {%- if page.wa_location or site.wa_location -%}
+<style>
+.wa-note{position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);padding:16px}
+.wa-note[hidden]{display:none}
+.wa-note__box{background:#fff;color:#1a1a1a;border-radius:16px;max-width:420px;width:100%;padding:20px 20px 16px;box-shadow:0 10px 30px rgba(0,0,0,.3);font-size:16px;line-height:1.45}
+.wa-note__title{font-weight:700;font-size:18px;margin:0 0 8px}
+.wa-note__text{margin:0 0 16px}
+.wa-note__go{display:block;text-align:center;background:#25d366;color:#fff;font-weight:700;padding:14px;border-radius:12px;text-decoration:none}
+.wa-note__close{display:block;width:100%;margin-top:8px;background:none;border:0;color:#666;font-size:15px;padding:8px;cursor:pointer}
+@media (min-width:600px){.wa-note{align-items:center}}
+</style>
 <script>
 (function () {
-  if (!navigator.geolocation) return;
-  var label = document.documentElement.lang === 'en' ? 'My location:' : 'Konumum:';
+  var en = document.documentElement.lang === 'en';
+  var T = en ? {
+    label: 'My location:',
+    title: '📍 We couldn’t get your location',
+    text: 'When WhatsApp opens, tap <b>📎 (or +) → Location → Send your current location</b>.',
+    go: 'Open WhatsApp',
+    close: 'Close'
+  } : {
+    label: 'Konumum:',
+    title: '📍 Konumunuz alınamadı',
+    text: 'WhatsApp açılınca <b>📎 (veya +) → Konum → Mevcut konumu gönder</b> ile konumunuzu iletin.',
+    go: 'WhatsApp’ı aç',
+    close: 'Kapat'
+  };
   var busy = false;
+  var note = null;
+
+  function showNote(url) {
+    if (!note) {
+      note = document.createElement('div');
+      note.className = 'wa-note';
+      note.setAttribute('role', 'dialog');
+      note.innerHTML = '<div class="wa-note__box"><p class="wa-note__title"></p><p class="wa-note__text"></p>' +
+        '<a class="wa-note__go" data-wa-direct></a><button type="button" class="wa-note__close"></button></div>';
+      note.querySelector('.wa-note__title').textContent = T.title;
+      note.querySelector('.wa-note__text').innerHTML = T.text;
+      note.querySelector('.wa-note__go').textContent = T.go;
+      note.querySelector('.wa-note__close').textContent = T.close;
+      note.addEventListener('click', function (e) {
+        if (e.target === note || e.target.classList.contains('wa-note__close')) note.hidden = true;
+      });
+      note.querySelector('.wa-note__go').addEventListener('click', function () {
+        setTimeout(function () { note.hidden = true; }, 300);
+      });
+      document.body.appendChild(note);
+    }
+    note.querySelector('.wa-note__go').setAttribute('href', url);
+    note.hidden = false;
+  }
 
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('a[href*="wa.me/"]');
-    if (!link) return;
+    if (!link || link.hasAttribute('data-wa-direct')) return;
     e.preventDefault();
     if (busy) return;
-    busy = true;
 
     var href = link.getAttribute('href');
     var parts = href.split('?text=');
     var baseText = parts[1] ? decodeURIComponent(parts[1]) : '';
-    var finished = false;
 
-    function openWhatsApp(mapLink) {
+    if (!navigator.geolocation) { showNote(href); return; }
+
+    busy = true;
+    var finished = false;
+    function done(mapLink) {
       if (finished) return;
       finished = true;
       busy = false;
       link.classList.remove('is-locating');
-      var text = mapLink ? (baseText + ' ' + label + ' ' + mapLink).trim() : baseText;
-      window.location.href = parts[0] + (text ? '?text=' + encodeURIComponent(text) : '');
+      if (mapLink) {
+        var text = (baseText + ' ' + T.label + ' ' + mapLink).trim();
+        window.location.href = parts[0] + '?text=' + encodeURIComponent(text);
+      } else {
+        showNote(href);
+      }
     }
 
     link.classList.add('is-locating');
-    var fallback = setTimeout(function () { openWhatsApp(null); }, 10000);
+    var fallback = setTimeout(function () { done(null); }, 10000);
 
     navigator.geolocation.getCurrentPosition(function (pos) {
       clearTimeout(fallback);
       var lat = pos.coords.latitude.toFixed(6);
       var lng = pos.coords.longitude.toFixed(6);
-      openWhatsApp('https://maps.google.com/?q=' + lat + ',' + lng);
+      done('https://maps.google.com/?q=' + lat + ',' + lng);
     }, function () {
       clearTimeout(fallback);
-      openWhatsApp(null);
+      done(null);
     }, { enableHighAccuracy: true, timeout: 9000, maximumAge: 60000 });
   });
 })();
