@@ -5,6 +5,8 @@ google_ads:
   id: "AW-16895671720"
   call_click: "AW-16895671720/0LfvCPfTtasdEKj7vfg-"      # Site - Ara tıklaması
   whatsapp_click: "AW-16895671720/nVFkCITntasdEKj7vfg-"  # Site - WhatsApp tıklaması
+# WhatsApp buttons add the visitor's location (with permission) to the message
+wa_location: true
 url: "https://www.kayseritaksisi.com.tr"
 baseurl: ""
 
