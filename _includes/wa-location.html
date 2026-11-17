@@ -1,0 +1,51 @@
+{%- comment -%}
+WhatsApp buttons: ask the browser for the visitor's location and add a Google Maps
+link to the pre-filled WhatsApp message. If location is refused, unavailable or
+slow, the button opens WhatsApp with the normal message, exactly as before.
+Turned on per page with `wa_location: true`, or for the whole site with
+`wa_location: true` in _config.yml.
+{%- endcomment -%}
+{%- if page.wa_location or site.wa_location -%}
+<script>
+(function () {
+  if (!navigator.geolocation) return;
+  var label = document.documentElement.lang === 'en' ? 'My location:' : 'Konumum:';
+  var busy = false;
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (!link) return;
+    e.preventDefault();
+    if (busy) return;
+    busy = true;
+
+    var href = link.getAttribute('href');
+    var parts = href.split('?text=');
+    var baseText = parts[1] ? decodeURIComponent(parts[1]) : '';
+    var finished = false;
+
+    function openWhatsApp(mapLink) {
+      if (finished) return;
+      finished = true;
+      busy = false;
+      link.classList.remove('is-locating');
+      var text = mapLink ? (baseText + ' ' + label + ' ' + mapLink).trim() : baseText;
+      window.location.href = parts[0] + (text ? '?text=' + encodeURIComponent(text) : '');
+    }
+
+    link.classList.add('is-locating');
+    var fallback = setTimeout(function () { openWhatsApp(null); }, 10000);
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      clearTimeout(fallback);
+      var lat = pos.coords.latitude.toFixed(6);
+      var lng = pos.coords.longitude.toFixed(6);
+      openWhatsApp('https://maps.google.com/?q=' + lat + ',' + lng);
+    }, function () {
+      clearTimeout(fallback);
+      openWhatsApp(null);
+    }, { enableHighAccuracy: true, timeout: 9000, maximumAge: 60000 });
+  });
+})();
+</script>
+{%- endif -%}
