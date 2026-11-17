@@ -5,57 +5,86 @@ slow, a small notice explains how to send the location from inside WhatsApp,
 with a button that opens WhatsApp with the normal message.
 Turned on per page with `wa_location: true`, or for the whole site with
 `wa_location: true` in _config.yml.
+`wa_direct: true` (page or site) opens the WhatsApp app directly on phones
+(whatsapp://send) instead of going through the wa.me web page.
+`?nokonum` in the address shows the notice without asking for location (for testing).
 {%- endcomment -%}
 {%- if page.wa_location or site.wa_location -%}
 <style>
-.wa-note{position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);padding:16px}
+.wa-note{position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.6);padding:12px}
 .wa-note[hidden]{display:none}
-.wa-note__box{background:#fff;color:#1a1a1a;border-radius:16px;max-width:420px;width:100%;padding:20px 20px 16px;box-shadow:0 10px 30px rgba(0,0,0,.3);font-size:16px;line-height:1.45}
-.wa-note__title{font-weight:700;font-size:18px;margin:0 0 8px}
-.wa-note__text{margin:0 0 16px}
-.wa-note__go{display:block;text-align:center;background:#25d366;color:#fff;font-weight:700;padding:14px;border-radius:12px;text-decoration:none}
-.wa-note__close{display:block;width:100%;margin-top:8px;background:none;border:0;color:#666;font-size:15px;padding:8px;cursor:pointer}
+.wa-note__box{position:relative;background:#fff;color:#1a1a1a;border-radius:20px;max-width:420px;width:100%;padding:22px 20px 14px;box-shadow:0 12px 40px rgba(0,0,0,.35);font-size:16px;line-height:1.4;animation:waUp .2s ease-out}
+@keyframes waUp{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.wa-note__x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:#f1f1f1;color:#555;font-size:20px;line-height:36px;cursor:pointer}
+.wa-note__title{font-weight:700;font-size:19px;margin:0 40px 4px 0}
+.wa-note__sub{margin:0 0 16px;color:#666;font-size:14px}
+.wa-note__steps{list-style:none;margin:0 0 18px;padding:0;counter-reset:s}
+.wa-note__steps li{counter-increment:s;display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #eee;font-size:16px}
+.wa-note__steps li:first-child{border-top:0}
+.wa-note__steps li::before{content:counter(s);flex:0 0 28px;height:28px;border-radius:50%;background:#25d366;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.wa-note__ico{display:inline-flex;margin:0 2px;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;background:#f1f1f1;font-size:15px;vertical-align:middle}
+.wa-note__go{display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;font-weight:700;font-size:17px;padding:15px;border-radius:14px;text-decoration:none}
+.wa-note__go img{width:22px;height:22px}
 @media (min-width:600px){.wa-note{align-items:center}}
 </style>
 <script>
 (function () {
   var en = document.documentElement.lang === 'en';
+  var direct = {{ page.wa_direct | default: site.wa_direct | default: false | jsonify }};
+  var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var noLoc = /[?&]nokonum\b/.test(location.search);
   var T = en ? {
     label: 'My location:',
-    title: '📍 We couldn’t get your location',
-    text: 'When WhatsApp opens, tap <b>📎 (or +) → Location → Send your current location</b>.',
+    title: 'Send us your location',
+    sub: 'We couldn’t add it automatically. It takes 3 taps:',
+    s1: 'Tap the green button below',
+    s2: 'In the chat, tap <span class="wa-note__ico">📎</span> or <span class="wa-note__ico">+</span>',
+    s3: '<b>Location</b> → <b>Send Your Current Location</b>',
     go: 'Open WhatsApp',
     close: 'Close'
   } : {
     label: 'Konumum:',
-    title: '📍 Konumunuz alınamadı',
-    text: 'WhatsApp açılınca <b>📎 (veya +) → Konum → Mevcut konumu gönder</b> ile konumunuzu iletin.',
+    title: 'Konumunuzu gönderin',
+    sub: 'Otomatik ekleyemedik. 3 dokunuşta gönderebilirsiniz:',
+    s1: 'Aşağıdaki yeşil butona dokunun',
+    s2: 'Sohbette <span class="wa-note__ico">📎</span> veya <span class="wa-note__ico">+</span> simgesine dokunun',
+    s3: '<b>Konum</b> → <b>Mevcut Konumu Gönder</b>',
     go: 'WhatsApp’ı aç',
     close: 'Kapat'
   };
   var busy = false;
   var note = null;
 
+  // wa.me/NUMBER?text=... -> whatsapp://send?phone=NUMBER&text=... on phones
+  function appUrl(url) {
+    if (!direct || !mobile) return url;
+    var m = url.match(/wa\.me\/(\d+)(?:\?text=(.*))?$/);
+    if (!m) return url;
+    return 'whatsapp://send?phone=' + m[1] + (m[2] ? '&text=' + m[2] : '');
+  }
+
   function showNote(url) {
     if (!note) {
       note = document.createElement('div');
       note.className = 'wa-note';
       note.setAttribute('role', 'dialog');
-      note.innerHTML = '<div class="wa-note__box"><p class="wa-note__title"></p><p class="wa-note__text"></p>' +
-        '<a class="wa-note__go" data-wa-direct></a><button type="button" class="wa-note__close"></button></div>';
-      note.querySelector('.wa-note__title').textContent = T.title;
-      note.querySelector('.wa-note__text').innerHTML = T.text;
-      note.querySelector('.wa-note__go').textContent = T.go;
-      note.querySelector('.wa-note__close').textContent = T.close;
+      note.setAttribute('aria-modal', 'true');
+      note.innerHTML = '<div class="wa-note__box">' +
+        '<button type="button" class="wa-note__x" aria-label="' + T.close + '">×</button>' +
+        '<p class="wa-note__title">📍 ' + T.title + '</p>' +
+        '<p class="wa-note__sub">' + T.sub + '</p>' +
+        '<ol class="wa-note__steps"><li><span>' + T.s1 + '</span></li><li><span>' + T.s2 + '</span></li><li><span>' + T.s3 + '</span></li></ol>' +
+        '<a class="wa-note__go" data-wa-direct><img src="/assets/icon-whatsapp-44.png" alt="" width="22" height="22">' + T.go + '</a>' +
+        '</div>';
       note.addEventListener('click', function (e) {
-        if (e.target === note || e.target.classList.contains('wa-note__close')) note.hidden = true;
+        if (e.target === note || e.target.classList.contains('wa-note__x')) note.hidden = true;
       });
       note.querySelector('.wa-note__go').addEventListener('click', function () {
-        setTimeout(function () { note.hidden = true; }, 300);
+        setTimeout(function () { note.hidden = true; }, 400);
       });
       document.body.appendChild(note);
     }
-    note.querySelector('.wa-note__go').setAttribute('href', url);
+    note.querySelector('.wa-note__go').setAttribute('href', appUrl(url));
     note.hidden = false;
   }
 
@@ -69,7 +98,7 @@ Turned on per page with `wa_location: true`, or for the whole site with
     var parts = href.split('?text=');
     var baseText = parts[1] ? decodeURIComponent(parts[1]) : '';
 
-    if (!navigator.geolocation) { showNote(href); return; }
+    if (noLoc || !navigator.geolocation) { showNote(href); return; }
 
     busy = true;
     var finished = false;
@@ -80,7 +109,7 @@ Turned on per page with `wa_location: true`, or for the whole site with
       link.classList.remove('is-locating');
       if (mapLink) {
         var text = (baseText + ' ' + T.label + ' ' + mapLink).trim();
-        window.location.href = parts[0] + '?text=' + encodeURIComponent(text);
+        window.location.href = appUrl(parts[0] + '?text=' + encodeURIComponent(text));
       } else {
         showNote(href);
       }
