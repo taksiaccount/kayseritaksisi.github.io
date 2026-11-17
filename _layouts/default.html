@@ -10,7 +10,7 @@
 
   <title>{{ page.seo_title | default: page.title }}</title>
   <meta name="description" content="{{ page.seo_description | default: page.description | default: site.description | escape }}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="{{ page.robots | default: 'index, follow' }}">
   <meta name="google-site-verification" content="6CkPrl9MFrEhwR685k-cwUDc39iBgtd-iSV_89kqYhA" />
 
   <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -46,6 +46,7 @@
   <link rel="stylesheet" href="{{ 'style.css' | relative_url }}">
 
   {% include google-ads.html %}
+  {% include wa-location.html %}
   {%- include hero-src.html -%}
   {%- if hero_m %}
   <link rel="preload" as="image" href="{{ hero_m }}" media="(max-width: 899px)" fetchpriority="high">
